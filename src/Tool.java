@@ -1,0 +1,1 @@
+public enum Tool { PENCIL, ERASER, SHAPE }
