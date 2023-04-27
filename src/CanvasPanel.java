@@ -1,6 +1,9 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 
@@ -98,9 +101,34 @@ public class CanvasPanel extends JPanel implements MouseListener, MouseMotionLis
 		
 	    private void drawCurrentShape(Graphics2D g2) 
 	    {
-	       //TODO: needs to draw shape 
-	        
-	        
+			switch (_shape) {
+				case RECT:
+					g2.setColor(_color);
+					Rectangle2D.Float rect = new Rectangle2D.Float(
+							_start.x,
+							_start.y,
+							Math.abs(_start.x - _end.x),
+							Math.abs(_start.y - _end.y));
+					g2.draw(rect);
+					break;
+				case OVAL:
+					g2.setColor(_color);
+					Ellipse2D.Float circle = new Ellipse2D.Float(
+							_start.x,
+							_start.y,
+							Math.abs(_start.x - _end.x),
+							Math.abs(_start.y - _end.y));
+					g2.draw(circle);
+					break;
+				case LINE:
+					g2.setColor(_color);
+					Line2D.Float line = new Line2D.Float(
+							_start.x,
+							_start.y,
+							_end.x,
+							_end.y);
+					g2.draw(line);
+			}
 	    }
 	    
 
