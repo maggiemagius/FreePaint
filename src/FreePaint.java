@@ -38,18 +38,21 @@ public class FreePaint extends JPanel implements MouseListener, MouseMotionListe
         JRadioButton rectangleButton = new JRadioButton("Rectangle", true);
         rectangleButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                _canvas.setTool(Tool.SHAPE);
                 _canvas.setShape(Shape.RECT);
             }});
         
         JRadioButton circleButton = new JRadioButton("Oval");
         circleButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                _canvas.setTool(Tool.SHAPE);
                 _canvas.setShape(Shape.OVAL);
             }});
                 
         JRadioButton lineButton = new JRadioButton("Line");
         lineButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                _canvas.setTool(Tool.SHAPE);
                 _canvas.setShape(Shape.LINE);
             }});
             
